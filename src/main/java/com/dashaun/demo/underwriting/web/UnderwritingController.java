@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UnderwritingController {
 
-    @GetMapping("/api/underwriting/rules")
+    @GetMapping({"/api/underwriting/rules", "/api/underwriting/rules/"})
     public String rules() {
         return "[{\"code\":\"R-101\",\"name\":\"driving-history\"},"
                 + "{\"code\":\"R-102\",\"name\":\"claims-frequency\"},"
                 + "{\"code\":\"R-103\",\"name\":\"credit-tier\"}]";
     }
 
-    @GetMapping("/api/underwriting/risk/{customerId}")
+    @GetMapping({"/api/underwriting/risk/{customerId}", "/api/underwriting/risk/{customerId}/"})
     public String risk(@PathVariable String customerId) {
         return "{\"customerId\":\"" + customerId + "\","
                 + "\"riskScore\":0.18,\"tier\":\"PREFERRED\","
